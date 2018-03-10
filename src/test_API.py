@@ -1,4 +1,6 @@
-import kraken_api_handle,http.client
+import http.client
+
+from src import kraken_api_handle
 
 
 def main():
