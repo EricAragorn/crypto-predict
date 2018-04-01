@@ -1,13 +1,14 @@
 import http.client
+import json
 
-from src import kraken_api_handle
+from src.api_handle import APIHandle
 
 
 def main():
-    handle = kraken_api_handle.KrakenAPIHandle()
+    handle = APIHandle()
     try:
-        # print(handle.get_asset_pairs())
-        print(handle.get_ticker({"XBTUSD"}))
+        print(json.dumps(handle.get_time(), indent=4, sort_keys=False))
+        # print(json.dumps(json.loads(handle.get_orderbook({"XBTUSD"}, count=10).decode()), indent=4, sort_keys=True))
     except http.client.HTTPException as e:
         print("HTTP request failed: %s" % e.args)
 

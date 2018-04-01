@@ -1,0 +1,149 @@
+import http.client,urllib.parse
+import json
+
+from src.data import KrakenAPILink
+
+
+class APIHandle:
+
+    def __init__(self, exchange_mode='kraken'):
+        if exchange_mode == 'kraken':
+            self.api_link = KrakenAPILink()
+        else:
+            raise NotImplementedError
+
+    def new_connection(self):
+        """Establish a new connection to api host
+
+        Returns:
+            A HTTPSConnection to self.api_link.host
+        """
+        return http.client.HTTPSConnection(self.api_link.host, port=http.client.HTTPS_PORT)
+
+    def get_asset_pairs(self):
+        """Get information of all asset pairs available on Kraken exchange
+
+        Returns:
+            A dictionary containing all asset pair information
+
+            See https://www.kraken.com/help/api#get-asset-info for documentation
+
+        Raises:
+            RuntimeError: An error occurs when failed to retrieve server information
+        """
+        conn = self.new_connection()
+        conn.request('GET', self.api_link.assetpair)
+        ret = json.loads(self._read_response(conn.getresponse()).decode())
+        if len(ret["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_asset_pairs(): Unable to retrieve asset information")
+        return ret["result"]
+
+    def get_time(self):
+        """Get Kraken server time
+
+        Returns:
+            A dictionary containing server time
+
+            See https://www.kraken.com/help/api#get-server-time for documentation
+
+        Raises:
+            RuntimeError: An error occurs when failed to retrieve server information
+        """
+        conn = self.new_connection()
+        conn.request('GET',self.api_link.time)
+        ret = json.loads(self._read_response(conn.getresponse()).decode())
+        if len(ret["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_time(): Unable to retrieve time")
+        return ret["result"]
+
+    def get_ticker(self, pairs):
+        """Get ticker infomation
+
+            Args:
+                pairs: a string containing asset pairs delimited by ","
+
+            Returns:
+                A dictionary containing ticker information
+
+                See https://www.kraken.com/help/api#get-ticker-info for documentation
+
+            Raises:
+                RuntimeError: An error occurs when failed to retrieve server information
+        """
+        if pairs is None:
+            raise Exception("KrakenAPIHandle.get_ticker() failed: pairs cannot be None")
+        conn = self.new_connection()
+        pair_string = self._set_to_string(pairs)
+        param = urllib.parse.urlencode({'pair': pair_string})
+        conn.request('POST', self.api_link.ticker, param)
+
+        ret = self._read_response(conn.getresponse())
+        if len(ret["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_ticker(): Unable to retrieve time")
+        return ret["result"]
+
+    def get_ohlc(self, pair, interval=1, since=None):
+        """Get ticker infomation
+
+            Args:
+                pair: an asset pair string
+                interval: the time interval of ohlc
+                        (Available values: 1 (default), 5, 15, 30, 60, 240, 1440, 10080, 21600)
+                since: return committed OHLC data since given id
+
+            Returns:
+                A dictionary containing ticker information
+
+                See https://www.kraken.com/help/api#get-ticker-info for documentation
+
+            Raises:
+                RuntimeError: An error occurs when failed to retrieve server information
+        """
+        if pair is None:
+            return
+        conn = self.new_connection()
+        if since is None:
+            param = urllib.parse.urlencode({'pair:': pair, 'interval:': interval})
+        else:
+            param = urllib.parse.urlencode({'pair': pair, 'interval': interval, 'since': since})
+        conn.request('POST', self.api_link.ohlc, param)
+
+        return self._read_response(conn.getresponse())
+
+    # raise HTTPException when response status is not 200
+    def get_orderbook(self, pairs, count=10):
+        if pairs is None:
+            return
+        conn = self.new_connection()
+        pair_string = self._set_to_string(pairs)
+        param = urllib.parse.urlencode({'pair': pair_string, 'count': count})
+
+        conn.request('POST', self.api_link.orderbook, param)
+
+        return self._read_response(conn.getresponse())
+
+    def _read_response(self, resp):
+        if resp.status != 200:
+            raise http.client.HTTPException("%s: %s" % (resp.reason, resp.status))
+        return resp.read()
+
+    def _set_to_string(self, pairs):
+        """Convert a list of asset pairs to a string delimited by ","
+
+        Args:
+            pairs: a list of asset pairs
+
+        Returns:
+            A formatted string containing asset pairs in pairs
+
+        """
+
+        param_string = ''
+        count = 0
+        for p in pairs:
+            if count != 0:
+                param_string += ","
+            param_string += p
+            count += 1
+
+        return param_string

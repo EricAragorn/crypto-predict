@@ -1,0 +1,10 @@
+import csv
+import time
+
+from src.data import AssetPairs
+
+def main():
+
+
+if __name__ == "__main__":
+    main()
