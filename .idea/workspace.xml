@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed97245a-f17c-4fc5-a02e-1aa28a9a2076" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/api_handle.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/data.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/kraken_crawler" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/cnn_price_train.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/kraken_api_handle.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/crypto-predict.iml" afterPath="$PROJECT_DIR$/.idea/crypto-predict.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/kraken_crawler.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/config.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/util.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/kraken_crawler" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/api_handle.py" afterPath="$PROJECT_DIR$/src/api_handle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data.py" afterPath="$PROJECT_DIR$/src/data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test_API.py" afterPath="$PROJECT_DIR$/src/test_API.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="api_handle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/api_handle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="136" column="53" lean-forward="false" selection-start-line="136" selection-start-column="53" selection-end-line="136" selection-end-column="53" />
+            <state relative-caret-position="1840">
+              <caret line="80" column="73" lean-forward="false" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -35,8 +36,8 @@
       <file leaf-file-name="data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="39" column="53" lean-forward="true" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+            <state relative-caret-position="46">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -55,8 +56,8 @@
       <file leaf-file-name="test_API.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test_API.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="69" lean-forward="false" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+            <state relative-caret-position="92">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -64,14 +65,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kraken_crawler" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/kraken_crawler">
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="46">
+              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kraken_crawler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kraken_crawler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="market_data.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/market_data.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,7 +126,22 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>self._set_to_string</find>
+      <find>set_to_string</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>util.set_to_string</replace>
+      <replace>list_to_string</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="EricAragorn &lt;ericaragorncn@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -100,10 +156,16 @@
         <option value="$PROJECT_DIR$/kraken_api_handle.py" />
         <option value="$PROJECT_DIR$/src/assetpair_list.py" />
         <option value="$PROJECT_DIR$/src/kraken_api_handle.py" />
-        <option value="$PROJECT_DIR$/src/data.py" />
+        <option value="$PROJECT_DIR$/src/util.py" />
         <option value="$PROJECT_DIR$/src/test_API.py" />
+        <option value="$PROJECT_DIR$/src/market_data.csv" />
         <option value="$PROJECT_DIR$/src/kraken_crawler" />
+        <option value="$PROJECT_DIR$/src/__init__.py" />
+        <option value="$PROJECT_DIR$/src/data.py" />
         <option value="$PROJECT_DIR$/src/api_handle.py" />
+        <option value="$PROJECT_DIR$/kraken_crawler.py" />
+        <option value="$PROJECT_DIR$/data/market_data.csv" />
+        <option value="$PROJECT_DIR$/src/config.py" />
       </list>
     </option>
   </component>
@@ -112,6 +174,23 @@
     <option name="y" value="273" />
     <option name="width" value="1400" />
     <option name="height" value="682" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+          <State>
+            <id>RELAX NG</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -129,7 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,17 +219,22 @@
             <path>
               <item name="crypto-predict" type="b2602c69:ProjectViewProjectNode" />
               <item name="crypto-predict" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="crypto-predict" type="b2602c69:ProjectViewProjectNode" />
+              <item name="crypto-predict" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -172,7 +256,41 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_API">
+  <component name="RunManager" selected="Python.kraken_crawler (1)">
+    <configuration name="kraken_crawler (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="crypto-predict" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kraken_crawler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="kraken_crawler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="crypto-predict" />
+      <option name="SCRIPT_NAME" value="D:\Documents\GitHub\crypto-predict\kraken_crawler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="mnist_tf" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -186,23 +304,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="crypto-predict" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mnist_tf.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
-    <configuration name="mnist_tf_template" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="crypto-predict" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mnist_tf_template.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -241,23 +342,28 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.mnist_tf" />
-      <item index="1" class="java.lang.String" itemvalue="Python.mnist_tf_template" />
-      <item index="2" class="java.lang.String" itemvalue="Python.price_crawler" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test_API" />
+      <item index="1" class="java.lang.String" itemvalue="Python.price_crawler" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test_API" />
+      <item index="3" class="java.lang.String" itemvalue="Python.kraken_crawler" />
+      <item index="4" class="java.lang.String" itemvalue="Python.kraken_crawler (1)" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.test_API" />
-        <item index="1" class="java.lang.String" itemvalue="Python.price_crawler" />
-        <item index="2" class="java.lang.String" itemvalue="Python.mnist_tf" />
-        <item index="3" class="java.lang.String" itemvalue="Python.mnist_tf_template" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.kraken_crawler (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.kraken_crawler" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test_API" />
+        <item index="3" class="java.lang.String" itemvalue="Python.price_crawler" />
+        <item index="4" class="java.lang.String" itemvalue="Python.mnist_tf" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -267,6 +373,14 @@
       <option name="presentableId" value="Default" />
       <updated>1520621571130</updated>
     </task>
+    <task id="LOCAL-00001" summary=" - kraken_api_handle.py now becomes api_handle.py&#10; - Modified api_handle.py in order to support gdax exchange in the future&#10; - Added data.py&#10; - Added kraken_crawler.py (to be implemented)">
+      <created>1522541614694</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1522541614694</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -296,11 +410,141 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=" - kraken_api_handle.py now becomes api_handle.py&#10; - Modified api_handle.py in order to support gdax exchange in the future&#10; - Added data.py&#10; - Added kraken_crawler.py (to be implemented)" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - kraken_api_handle.py now becomes api_handle.py&#10; - Modified api_handle.py in order to support gdax exchange in the future&#10; - Added data.py&#10; - Added kraken_crawler.py (to be implemented)" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market_data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api_handle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2714">
+          <caret line="122" column="41" lean-forward="false" selection-start-line="122" selection-start-column="41" selection-end-line="122" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_API.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="73" lean-forward="false" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kraken_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/market_data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="64" lean-forward="false" selection-start-line="0" selection-start-column="64" selection-end-line="0" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/api_handle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2806">
+          <caret line="125" column="65" lean-forward="false" selection-start-line="125" selection-start-column="65" selection-end-line="125" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="39" column="53" lean-forward="true" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="73" lean-forward="false" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kraken_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test_API.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/api_handle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -329,14 +573,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py" />
     <entry file="file://$PROJECT_DIR$/src/api_handle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -365,14 +602,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py" />
     <entry file="file://$PROJECT_DIR$/src/api_handle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -401,14 +631,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py" />
     <entry file="file://$PROJECT_DIR$/src/api_handle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -427,14 +650,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py" />
     <entry file="file://$PROJECT_DIR$/src/test_API.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -473,10 +689,11 @@
     <entry file="file://$PROJECT_DIR$/mnist_tf.py" />
     <entry file="file://$PROJECT_DIR$/mnist_tf_template.py" />
     <entry file="file://$PROJECT_DIR$/mnist_tf.py" />
-    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py">
+    <entry file="file://$PROJECT_DIR$/src/cnn_price_train.py" />
+    <entry file="file://$PROJECT_DIR$/src/market_data.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -491,8 +708,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test_API.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="69" lean-forward="false" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+        <state relative-caret-position="92">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -501,8 +718,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/api_handle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="136" column="53" lean-forward="false" selection-start-line="136" selection-start-column="53" selection-end-line="136" selection-end-column="53" />
+        <state relative-caret-position="1840">
+          <caret line="80" column="73" lean-forward="false" selection-start-line="80" selection-start-column="73" selection-end-line="80" selection-end-column="73" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -511,19 +728,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="39" column="53" lean-forward="true" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+        <state relative-caret-position="46">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kraken_crawler">
+    <entry file="file://$PROJECT_DIR$/src/util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="114">
+          <caret line="31" column="22" lean-forward="false" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kraken_crawler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/market_data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

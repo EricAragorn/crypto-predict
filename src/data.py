@@ -1,11 +1,12 @@
 from enum import Enum, unique
 
+CSV_FILE_PATH = "data/market_data.csv"
 
 @unique
 class AssetPairs(Enum):
-    XBTUSD = "XBTUSD"
-    LTCUSD = "LTCUSD"
-    XRPUSD = "XRPUSD"
+    XBTUSD = "XXBTZUSD"
+    LTCUSD = "XLTCZUSD"
+    XRPUSD = "XXRPZUSD"
 
 
 class ExchangeMode(Enum):

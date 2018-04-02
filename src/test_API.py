@@ -7,8 +7,8 @@ from src.api_handle import APIHandle
 def main():
     handle = APIHandle()
     try:
-        print(json.dumps(handle.get_time(), indent=4, sort_keys=False))
-        # print(json.dumps(json.loads(handle.get_orderbook({"XBTUSD"}, count=10).decode()), indent=4, sort_keys=True))
+        # print(json.dumps(handle.get_ticker({"XLTCXXBT"}), indent=4, sort_keys=False))
+        print(json.dumps(handle.get_orderbook({"XBTUSD"}, count=10), indent=4, sort_keys=True))
     except http.client.HTTPException as e:
         print("HTTP request failed: %s" % e.args)
 

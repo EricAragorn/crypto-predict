@@ -2,6 +2,7 @@ import http.client,urllib.parse
 import json
 
 from src.data import KrakenAPILink
+from src import util
 
 
 class APIHandle:
@@ -33,10 +34,10 @@ class APIHandle:
         """
         conn = self.new_connection()
         conn.request('GET', self.api_link.assetpair)
-        ret = json.loads(self._read_response(conn.getresponse()).decode())
-        if len(ret["error"]) != 0:
-            raise RuntimeError("KrakenAPIHandle.get_asset_pairs(): Unable to retrieve asset information")
-        return ret["result"]
+        resp = json.loads(self._read_response(conn.getresponse()).decode())
+        if len(resp["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_asset_pairs(): %s" % util.list_to_string(resp["error"]))
+        return resp["result"]
 
     def get_time(self):
         """Get Kraken server time
@@ -51,10 +52,10 @@ class APIHandle:
         """
         conn = self.new_connection()
         conn.request('GET',self.api_link.time)
-        ret = json.loads(self._read_response(conn.getresponse()).decode())
-        if len(ret["error"]) != 0:
-            raise RuntimeError("KrakenAPIHandle.get_time(): Unable to retrieve time")
-        return ret["result"]
+        resp = json.loads(self._read_response(conn.getresponse()).decode())
+        if len(resp["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_time(): %s" % util.list_to_string(resp["error"]))
+        return resp["result"]
 
     def get_ticker(self, pairs):
         """Get ticker infomation
@@ -73,14 +74,14 @@ class APIHandle:
         if pairs is None:
             raise Exception("KrakenAPIHandle.get_ticker() failed: pairs cannot be None")
         conn = self.new_connection()
-        pair_string = self._set_to_string(pairs)
+        pair_string = util.list_to_string(pairs)
         param = urllib.parse.urlencode({'pair': pair_string})
         conn.request('POST', self.api_link.ticker, param)
 
-        ret = self._read_response(conn.getresponse())
-        if len(ret["error"]) != 0:
-            raise RuntimeError("KrakenAPIHandle.get_ticker(): Unable to retrieve time")
-        return ret["result"]
+        resp = json.loads(self._read_response(conn.getresponse()).decode())
+        if len(resp["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_ticker(): %s" % util.list_to_string(resp["error"]))
+        return resp["result"]
 
     def get_ohlc(self, pair, interval=1, since=None):
         """Get ticker infomation
@@ -103,47 +104,32 @@ class APIHandle:
             return
         conn = self.new_connection()
         if since is None:
-            param = urllib.parse.urlencode({'pair:': pair, 'interval:': interval})
+            param = urllib.parse.urlencode({'pair': pair, 'interval': interval})
         else:
             param = urllib.parse.urlencode({'pair': pair, 'interval': interval, 'since': since})
         conn.request('POST', self.api_link.ohlc, param)
 
-        return self._read_response(conn.getresponse())
+        resp = json.loads(self._read_response(conn.getresponse()).decode())
+        if len(resp["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_ohlc(): %s" % util.list_to_string(resp["error"]))
+        return resp["result"]
 
     # raise HTTPException when response status is not 200
     def get_orderbook(self, pairs, count=10):
         if pairs is None:
             return
         conn = self.new_connection()
-        pair_string = self._set_to_string(pairs)
+        pair_string = util.list_to_string(pairs)
         param = urllib.parse.urlencode({'pair': pair_string, 'count': count})
 
         conn.request('POST', self.api_link.orderbook, param)
 
-        return self._read_response(conn.getresponse())
+        resp = json.loads(self._read_response(conn.getresponse()).decode())
+        if len(resp["error"]) != 0:
+            raise RuntimeError("KrakenAPIHandle.get_orderbook(): Unable to retrieve orderbook")
+        return resp["result"]
 
     def _read_response(self, resp):
         if resp.status != 200:
             raise http.client.HTTPException("%s: %s" % (resp.reason, resp.status))
         return resp.read()
-
-    def _set_to_string(self, pairs):
-        """Convert a list of asset pairs to a string delimited by ","
-
-        Args:
-            pairs: a list of asset pairs
-
-        Returns:
-            A formatted string containing asset pairs in pairs
-
-        """
-
-        param_string = ''
-        count = 0
-        for p in pairs:
-            if count != 0:
-                param_string += ","
-            param_string += p
-            count += 1
-
-        return param_string
