@@ -1,8 +1,8 @@
 import http.client,urllib.parse
 import json
 
-from src.data import KrakenAPILink
-from src import util
+from crawler.data import KrakenAPILink
+from crawler import util
 
 
 class APIHandle:

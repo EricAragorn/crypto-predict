@@ -1,6 +1,6 @@
 from enum import Enum, unique
 
-CSV_FILE_PATH = "data/market_data.csv"
+CSV_FILE_PATH = "../data/market_data.csv"
 
 @unique
 class AssetPairs(Enum):

@@ -2,13 +2,13 @@ import os
 import csv
 import time
 
-from src import util
-from src import config
-from src.data import AssetPairs
-from src.data import CSV_FILE_PATH
-from src.api_handle import APIHandle
+from crawler import util
+from crawler import config
+from crawler.data import AssetPairs
+from crawler.data import CSV_FILE_PATH
+from crawler.api_handle import APIHandle
 
-def main():
+def start():
     with open(CSV_FILE_PATH, mode='a', newline='') as datafile:
         csv_writer = csv.writer(datafile, dialect='excel')
 
@@ -55,4 +55,4 @@ def feature_vector_builder(assetpair):
     return vect
 
 if __name__ == "__main__":
-    main()
+    start()

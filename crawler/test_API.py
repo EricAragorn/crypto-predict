@@ -1,7 +1,7 @@
 import http.client
 import json
 
-from src.api_handle import APIHandle
+from crawler.api_handle import APIHandle
 
 
 def main():
