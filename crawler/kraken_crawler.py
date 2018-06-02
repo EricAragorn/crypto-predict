@@ -1,12 +1,12 @@
 import os
 import csv
 import time
+import syslog
 
-from crawler import util
-from crawler import config
-from crawler.data import AssetPairs
-from crawler.data import CSV_FILE_PATH
-from crawler.api_handle import APIHandle
+import util, config
+from data import AssetPairs
+from data import CSV_FILE_PATH
+from api_handle import APIHandle
 
 def start():
     with open(CSV_FILE_PATH, mode='a', newline='') as datafile:
@@ -28,9 +28,9 @@ def start():
         while True:
             try:
                 fvect = feature_vector_builder(AssetPairs.XBTUSD.value)
-                print(fvect)
                 csv_writer.writerow(fvect)
                 datafile.flush()
+                syslog.syslog('row written to file')
                 time.sleep(config.TIME_LAPSE)
             except KeyboardInterrupt:
                 return
@@ -44,7 +44,7 @@ def feature_vector_builder(assetpair):
 
     # add ohlc features to feature vector
     server_time = handle.get_time()["unixtime"]
-    ohlc = handle.get_ohlc(pair=assetpair, interval=5, since=server_time - config.TIME_LAPSE)["%s" % assetpair][0]
+    ohlc = handle.get_ohlc(pair=assetpair, interval=config.OHLC_INTERVAL, since=server_time - config.TIME_LAPSE)["%s" % assetpair][0]
     vect += (ohlc)
 
     depth = handle.get_orderbook({assetpair})["%s" % assetpair]
