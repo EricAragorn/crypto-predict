@@ -48,11 +48,11 @@ def feature_vector_builder(assetpair):
     vect += (ohlc)
 
     depth = handle.get_orderbook({assetpair})["%s" % assetpair]
-    for i in range(len(depth["asks"]) - 1, 0, -1):
+    for i in range(len(depth["asks"]) - 1, -1, -1):
         vect += (depth["asks"][i])
     for i in range(0, len(depth["bids"]), 1):
         vect += (depth["bids"][i])
     return vect
 
 if __name__ == "__main__":
-    start()
+    print(feature_vector_builder(AssetPairs.XBTUSD.value))
