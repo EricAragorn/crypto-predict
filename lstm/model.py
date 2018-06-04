@@ -1,3 +1,5 @@
+# Credit to Tensorflow authors: https://github.com/tensorflow/models/tree/master/tutorials/rnn/ptb
+
 import tensorflow as tf
 import config
 
