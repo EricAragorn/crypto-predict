@@ -1,9 +1,12 @@
+from __future__ import division
+from __future__ import absolute_import
+
+from lstm import config
+
 import tensorflow as tf
 import pandas as pd
 import numpy as np
-import config
 import model
-
 
 class Market_Data:
     def __init__(self):
@@ -73,16 +76,23 @@ def main(args):
         tf.global_variables_initializer().run()
         global_step = 0
         for epoch in range(config.max_epoches):
+            lr_decay = config.lr_decay_rate ** max(epoch - config.decay_range, 0)
+            sess.run(m.update_lr, feed_dict={m._new_lr: lr_decay * config.initial_lr})
             data.reset()
+
+            train_loss = 0
+            batch_count = 0
             while data.is_finished() is False:
                 trainX, trainY = data.next_training_batch(config.batch_size)
                 if len(trainX) == config.batch_size:
-                    sess.run([m.train_op], feed_dict={m.input: trainX, m.target: trainY})
+                    _, _loss = sess.run([m.train_op, m.loss], feed_dict={m.input: trainX, m.target: trainY})
                     global_step += 1
+                    train_loss += _loss
+                    batch_count += 1
                     print("Global Step:", global_step)
             valX, valY = data.validation_set(config.batch_size)
             _, val_loss = sess.run([m.output, m.loss], feed_dict={m.input: valX, m.target: valY})
-            print("Epoch: ", epoch, "Validation Loss: ", val_loss)
+            print("Epoch: ", epoch, "Training Loss", train_loss/ batch_count, "Validation Loss: ", val_loss)
 
 
 if __name__ == "__main__":

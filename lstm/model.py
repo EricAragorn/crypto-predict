@@ -3,12 +3,13 @@
 import tensorflow as tf
 import config
 
+
 class LSTMModel:
     def __init__(self, is_training):
         self._hidden_size = config.hidden_size
         self._num_steps = config.num_steps
         self._batch_size = config.batch_size
-        self._lr = config.initial_lr
+        self._lr = tf.Variable(0.0, trainable=False)
 
         self.input = tf.placeholder(tf.float32, [self._batch_size, self._num_steps, config.feature_size])
         self.target = tf.placeholder(tf.float32, [self._batch_size, config.target_size])
@@ -49,8 +50,8 @@ class LSTMModel:
                                           kernel_initializer=tf.initializers.truncated_normal(stddev=0.1),
                                           bias_initializer=tf.initializers.constant(0.1))
 
-            self.loss = tf.reduce_sum(tf.square(self.output - self.target))
+            self.loss = tf.div(tf.reduce_sum(tf.square(self.output - self.target)), config.batch_size)
             self.train_op = tf.train.AdamOptimizer(self._lr).minimize(self.loss)
 
-            # self._new_lr = tf.placeholder(tf.float32, [])
-            # self._update_lr = tf.assign(self._lr, self._new_lr)
+            self._new_lr = tf.placeholder(tf.float32, [])
+            self.update_lr = tf.assign(self._lr, self._new_lr)

@@ -12,13 +12,14 @@ feature_size = len(feature_list)
 target_size = len(target_list)
 
 # Run configurations
-batch_size = 100  # training batch size
+batch_size = 500  # training batch size
 num_steps = 60  # number of records feed into LSTM
 time_lap = 30  # time lap between last record of input and target record
 training_ratio = 0.75  # ratio of training set to data set
-initial_lr = 0.01
-lr_decay_rate = 0.9
-max_epoches = 20
+initial_lr = 0.02
+lr_decay_rate = 0.8
+max_epoches = 60
+decay_range = 40  # start weight decay after epoch exceeds range
 
 # LSTM settings
 hidden_size = feature_size  # hidden units of a single LSTM cell
