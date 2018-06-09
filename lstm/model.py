@@ -41,7 +41,7 @@ class LSTMModel:
 
         with tf.variable_scope("dense", reuse=False):
             h1 = tf.layers.dense(inputs=lstm_outputs,
-                                 units=1024,
+                                 units=1500,
                                  activation=tf.nn.tanh,
                                  kernel_initializer=tf.initializers.truncated_normal(stddev=0.1),
                                  bias_initializer=tf.initializers.zeros(),
@@ -59,7 +59,11 @@ class LSTMModel:
 
         # Loss function: squared error
         self.loss = tf.div(tf.reduce_sum(tf.square(output - self.target)), model_config.batch_size)
-        self.train_op = tf.train.AdamOptimizer(self._lr).minimize(self.loss)
+        optimizer = tf.train.AdamOptimizer(self._lr)
+        grad_and_var = optimizer.compute_gradients(self.loss)
+        grad_and_var = [(tf.clip_by_norm(grad, model_config.max_grad_norm),tvars) for grad, tvars in grad_and_var]
+        self.train_op = optimizer.apply_gradients(grad_and_var)
+
 
         self._new_lr = tf.placeholder(tf.float32, [])
         self.update_lr = tf.assign(self._lr, self._new_lr)

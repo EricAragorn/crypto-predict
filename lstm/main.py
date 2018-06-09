@@ -21,14 +21,15 @@ class ModelConfig:
         self.target_size = len(self.target_list)
 
         # Run configurations
-        self.batch_size = 100  # training batch size
+        self.batch_size = 20  # training batch size
         self.num_steps = 60  # number of records feed into LSTM
-        self.time_lap = 30  # time lap between last record of input and target record
+        self.time_lap = 1  # time lap between last record of input and target record
         self.training_ratio = 0.75  # ratio of training set to data set
         self.initial_lr = 0.05
         self.lr_decay_rate = 0.8
-        self.max_epoches = 100
-        self.decay_range = 70  # start weight decay after epoch exceeds range
+        self.max_epoches = 20
+        self.decay_range = 10  # start weight decay after epoch exceeds range
+        self.max_grad_norm = 10
 
         # LSTM settings
         self.hidden_size = self.feature_size  # hidden units of a single LSTM cell
@@ -68,7 +69,7 @@ class CryptoData:
         return batchX, batchY
 
     # WARNING: It is an incomplete version of fetching validation data
-    #          Currently it only fetches the first 100 samples from the validation set
+    #          Currently it only fetches the first <batch_size> samples from the validation set
     #          Will be removed in the future
     def validation_set(self, batch_size):
         batchX, batchY = [], []
